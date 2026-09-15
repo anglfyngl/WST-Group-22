@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFind - Report Lost Pet</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>FurFind</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="report.html">Report Lost Pet</a>
+            <a href="recent-pets.html">Recent Lost Pets</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h2>Report Lost Pet</h2>
+
+        <form>
+
+            <p>
+                <label for="pet-photo">Pet Photo:</label>
+                <input type="file" id="pet-photo" name="pet-photo">
+            </p>
+
+            <p>
+                <label for="pet-name">Pet Name:</label>
+                <input type="text" id="pet-name" name="pet-name">
+            </p>
+
+            <p>
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option>Cat</option>
+                    <option>Dog</option>
+                    <option>Bird</option>
+                    <option>Rabbit</option>
+                    <option>Other</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="breed">Breed:</label>
+                <input type="text" id="breed" name="breed">
+            </p>
+
+            <p>
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age">
+            </p>
+
+            <p>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="last-seen">Last Seen:</label>
+                <input type="text" id="last-seen" name="last-seen">
+            </p>
+
+            <p>
+                <label for="contact-number">Contact Number:</label>
+                <input type="tel" id="contact-number" name="contact-number">
+            </p>
+
+            <p>
+                <label for="missing-since">Missing Since:</label>
+                <input type="date" id="missing-since" name="missing-since">
+            </p>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <p>FurFind</p>
+        <p>&copy; 2026 FurFind</p>
+    </footer>
+
+</body>
+
+</html>
