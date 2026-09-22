@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurFind - Recent Lost Pets</title>
+
+     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="recent-page">
 
     <header>
-        <h1>FurFind</h1>
+
+        <div class="logo-area">
+            <img src="resources/logo.png" alt="FurFind logo">
+            <h1>FurFind</h1>
+        </div>
 
         <nav>
             <a href="index.html">Home</a>
@@ -21,11 +28,14 @@
         </nav>
     </header>
 
-    <main>
+    <main class="recent-main">
+        <h2 class="recent-title">Recent Lost Pets</h2>
 
-        <h2>Recent Lost Pets</h2>
+        <div class="pet-grid">
 
-        <article>
+        <article class="pet-card buddy-card">
+
+         <img src="resources/buddy.png" alt="Buddy">
             <h3>Buddy</h3>
 
             <p>Type: Dog</p>
@@ -33,48 +43,57 @@
             <p>Age: 3 years</p>
             <p>Gender: Male</p>
             <p>Last seen: Quezon City</p>
-            <p><strong>Call: 09XX-XXX-XXXX</strong></p>
             <p>Missing Since: September 5, 2026</p>
+            <p><strong>Call: 09XX-XXX-XXXX</strong></p>
+
         </article>
 
+        <article class="pet-card ginger-card">
+            <img src="resources/ginger.png" alt="Ginger">
 
-        <article>
-            <h3>Alice</h3>
+            <h3>Ginger</h3>
 
             <p>Type: Cat</p>
             <p>Breed: British Short Hair</p>
             <p>Age: 6 Months</p>
             <p>Gender: Female</p>
             <p>Last seen: Makati City</p>
-            <p><strong>Call: 09XX-XXX-XXXX</strong></p>
             <p>Missing Since: September 9, 2026</p>
+            <p><strong>Call: 09XX-XXX-XXXX</strong></p>
+
         </article>
 
+        <article class="pet-card alice-card">
+            <img src="resources/alice.png" alt="Alice">
 
-        <article>
-            <h3>Shy</h3>
+            <h3>Alice</h3>
 
             <p>Type: Rabbit</p>
             <p>Breed: New Zealand</p>
             <p>Age: 1 Year</p>
             <p>Gender: Female</p>
             <p>Last seen: Cavite</p>
-            <p><strong>Call: 09XX-XXX-XXXX</strong></p>
             <p>Missing Since: September 1, 2026</p>
+            <p><strong>Call: 09XX-XXX-XXXX</strong></p>
+            
         </article>
 
+        <article class="pet-card shy-card">
+            <img src="resources/shy.png" alt="Shy">
 
-        <article>
-            <h3>Ginger</h3>
+            <h3>Shy</h3>
 
             <p>Type: Bird</p>
             <p>Breed: American Goldfinch</p>
             <p>Age: 4 Months</p>
             <p>Gender: Male</p>
             <p>Last seen: Pampanga</p>
+            <p>Missing Since: September 1, 2026</p>
             <p><strong>Call: 09XX-XXX-XXXX</strong></p>
-            <p>Missing Since: September 15, 2026</p>
+
         </article>
+
+        </div>
 
     </main>
 
