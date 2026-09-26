@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurFind - About</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="about-page">
 
     <header>
-        <h1>FurFind</h1>
+
+        <div class="logo-area">
+            <img src="resources/logo.png" alt="FurFind logo">
+            <h1>FurFind</h1>
+        </div>
 
         <nav>
             <a href="index.html">Home</a>
@@ -21,37 +28,58 @@
         </nav>
     </header>
 
-    <main>
+    <main class="about-main">
 
-        <h2>About FurFind</h2>
+         <section class="about-intro">
+         <div class="about-intro-text">
 
-        <section>
-            <h3>What is FurFind?</h3>
+             <h2>What is FurFind?</h2>
 
-            <p>
-                FurFind is a web-based platform designed to help 
-                reunite lost pets with their owners. Pet owners 
-                can quickly create lost pet reports by providing 
-                essential details such as the pet's type, 
-                breed, last known location, photo, and contact information.
+              <p>
+                <strong>FurFind</strong> is a web-based platform designed to help
+                reunite lost pets with their owners. Pet owners can quickly create
+                lost pet reports by providing essential details such as the pet's
+                type, breed, last known location, photo, and contact information.
             </p>
+
+         </div>
+         
+         <img class="about-main-image"
+         src="resources/main.png"
+         alt="Pets">
+
+
         </section>
 
 
-        <section>
+        <section class="about-info">
+
+            <article class="about-card">
+
+            <img src="resources/created.png" alt="Why FurFind was created">
+
+            <div>
             <h3>Why FurFind Was Created</h3>
 
             <p>
                 Losing a beloved pet can be stressful and 
                 heartbreaking. FurFind was created to make 
                 the search process easier, faster, and 
-                organize by giving pet owners a dedicated 
+                organized by giving pet owners a dedicated 
                 platform to share information and reach a wider community.
             </p>
-        </section>
+
+            </div>
+
+            </article>
+        
 
 
-        <section>
+            <article class="about-card">
+
+            <img src="resources/helps.png" alt="How FurFind helps">
+
+            <div>
             <h3>How FurFind Helps</h3>
 
             <p>
@@ -61,10 +89,16 @@
                 groups can help identify missing pets and 
                 contact owners when a match is found.
             </p>
-        </section>
+
+            </div>
+            </article>
 
 
-        <section>
+            <article class="about-card">
+
+            <img src="resources/mission.png" alt="Our mission">
+
+            <div>
             <h3>Our Mission</h3>
 
             <p>
@@ -73,12 +107,15 @@
                 and quickly. FurFind believes that every pet 
                 deserves the opportunity to return home.
             </p>
+            </div>
+            
+            </article>
         </section>
 
     </main>
 
     <footer>
-        <p>FurFind</p>
+        <a href="support.html">FurFind Customer Support</a>
         <p>&copy; 2026 FurFind</p>
     </footer>
 

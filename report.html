@@ -38,7 +38,11 @@
 
             <p>
                 <label for="pet-photo">Pet Photo:</label>
-                <input type="file" id="pet-photo" name="pet-photo" required>
+                <input type="file"
+                   id="pet-photo"
+                   name="pet-photo"
+                   accept=".jpg,.jpeg,.png,.gif,.webp"
+                   required>
             </p>
 
             <p>
@@ -70,7 +74,7 @@
                 <input type="number" id="age" name="age" min="0" required>
 
                 <select id="age-unit" name="age-unit" required>
-                    <option value="" disabled selected>Unit</option>
+                    <option value="" disabled selected>Years</option>
                     <option>Years</option>
                     <option>Months</option>
                 </select>
@@ -111,14 +115,24 @@
 
             <button type="submit">Submit</button>
 
+            <p id="report-message"></p>
+
         </form>
+
+        <p class="report-note">
+            <strong>NOTE:</strong> Please ensure that all details are correct and accurate
+            before submitting. For corrections or modification requests, please contact
+            <a href="support.html">FurFind Customer Support</a>.
+        </p>
 
     </main>
 
     <footer>
-        <p>FurFind</p>
+        <a href="support.html">FurFind Customer Support</a>
         <p>&copy; 2026 FurFind</p>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 

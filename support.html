@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFind - Customer Support</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<body class="support-page">
+
+    <header>
+
+        <div class="logo-area">
+            <img src="resources/logo.png" alt="FurFind logo">
+            <h1>FurFind</h1>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="report.html">Report Lost Pet</a>
+            <a href="recent-pets.html">Recent Lost Pets</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+        </nav>
+
+    </header>
+
+    <main class="support-main">
+
+        <h2 class="support-title">Hi there, how can we help?</h2>
+
+        <form class="support-form">
+
+        <div class="form-column">
+
+        <p>
+            <label for="support-subject">Subject:</label>
+            <input type="text"
+                id="support-subject"
+                name="support-subject"
+                required>
+        </p>
+
+        <p>
+            <label for="support-email">Email Address:</label>
+            <input type="email"
+                id="support-email"
+                name="support-email"
+                required>
+        </p>
+
+        <p>
+            <label for="issue-category">Issue Category:</label>
+            <select id="issue-category" name="issue-category" required>
+                <option value="" disabled selected>Select category</option>
+                <option>Correction Request</option>
+                <option>Modification Request</option>
+                <option>Report an Issue</option>
+                <option>Other</option>
+            </select>
+        </p>
+
+        </div>
+
+        <div class="form-column">
+
+        <p>
+            <label for="support-message">Message:</label>
+            <textarea id="support-message"
+                name="support-message"
+                rows="5"
+                required></textarea>
+        </p>
+
+        </div>
+
+        <button type="submit">Submit Request</button>
+
+        <p id="support-message-status"></p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <a href="support.html">FurFind Customer Support</a>
+        <p>&copy; 2026 FurFind</p>
+    </footer>
+
+    <script src="support.js"></script>
+
+</body>
+
+</html>
