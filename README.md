@@ -1,37 +1,46 @@
-FurFind
+# FurFind
 
 Helping lost animals find their way home.
 
-About
+## About
 
-FurFind is a browser-based application that helps people report and find lost pets. It connects pet owners with shelters, rescuers, veterinary clinics, and the community.
+FurFind is a browser-based application that helps people report and find lost pets. Users can submit lost pet information, view recent lost pet reports, find animal resources, and contact FurFind Customer Support for help with their reports.
 
-Features
+## Features
 
-- Report a lost pet
-- View recent lost pets
-- Find shelters, rescuers, and veterinary clinics
-- View contact information
-- Learn about FurFind
+* Report a lost pet
+* Validate pet report information
+* View recent lost pets
+* View uploaded pet photos and report details
+* Navigate through multiple lost pet reports
+* Find shelters, rescuers, and veterinary clinics
+* Contact FurFind Customer Support
+* Responsive layout for different screen sizes
 
-Pages
+## Pages
 
-- Home
-- Report Lost Pet
-- Recent Lost Pets
-- Resources
-- About
+* Home
+* Report Lost Pet
+* Recent Lost Pets
+* Resources
+* About
+* Customer Support
 
-Design Reference
+## Design Reference
 
-The Canva design serves as a reference guide for the website's layout, content, and overall appearance.
+The Canva design serves as a reference for the website's layout, content, colors, typography, and overall appearance.
 
 [View Canva Design](https://canva.link/s1aeiq7bu58b1f8)
 
-Purpose
+## Purpose
 
-FurFind was created to help make finding lost pets easier, faster, and more organized.
+FurFind was created to help make finding lost pets easier, faster, and more organized by providing a simple way to report and view lost pet information.
 
-Developers
+## Developers
 
-Group 22
+**Group 22**
+
+* Angel Faye Nogal
+* Ailyn Grana
+* Aldrin Cañete
+* Genesis Jontilano
