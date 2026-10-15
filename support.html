@@ -42,6 +42,7 @@
             <input type="text"
                 id="support-subject"
                 name="support-subject"
+                maxlength="100"
                 required>
         </p>
 
@@ -50,6 +51,7 @@
             <input type="email"
                 id="support-email"
                 name="support-email"
+                maxlength="254"
                 required>
         </p>
 
@@ -73,6 +75,8 @@
             <textarea id="support-message"
                 name="support-message"
                 rows="5"
+                minlength="10"
+                maxlength="1000"
                 required></textarea>
         </p>
 
@@ -80,7 +84,7 @@
 
         <button type="submit">Submit Request</button>
 
-        <p id="support-message-status"></p>
+        <p id="support-message-status" role="status" aria-live="polite"></p>
 
         </form>
 
