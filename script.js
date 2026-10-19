@@ -81,18 +81,30 @@ reportForm.addEventListener("submit", function(event) {
                 image: compressedImage
             };
 
-            const savedPets =
-                JSON.parse(localStorage.getItem("furfindPets")) || [];
+           fetch("http://localhost:3000/api/pets", {
+               method: "POST",
+               headers: {
+                   "Content-Type": "application/json"
+                },
+                body: JSON.stringify(petReport)
+            })
+            .then(async function(response) {
+                const result = await response.json();
 
-            savedPets.push(petReport);
-
-            localStorage.setItem(
-                "furfindPets",
-                JSON.stringify(savedPets)
-            );
+                if (!response.ok) {
+                    throw new Error(result.message || "Could not save report.");
+                }
 
             document.querySelector("#report-message").textContent =
                 "Lost pet report submitted successfully!";
+
+            })
+            .catch(function(error) {
+                console.error("Error saving pet report:", error);
+
+                document.querySelector("#report-message").textContent =
+                    "Could not submit the report. Please try again.";
+            });
 
             setTimeout(function() {
                 window.location.href = "recent-pets.html";

@@ -2,9 +2,6 @@ const petGrid = document.querySelector(".pet-grid");
 const prevButton = document.querySelector(".prev-button");
 const nextButton = document.querySelector(".next-button");
 
-const savedPets =
-    JSON.parse(localStorage.getItem("furfindPets")) || [];
-
 const petColors = [
     "buddy-card",
     "ginger-card",
@@ -12,6 +9,7 @@ const petColors = [
     "shy-card"
 ];
 
+// Count the sample cards already in the HTML
 const existingPetCount = petGrid.children.length;
 
 function formatDate(dateString) {
@@ -24,73 +22,114 @@ function formatDate(dateString) {
     });
 }
 
-savedPets.forEach(function(pet, index) {
+// Create a card for each pet report
+function createPetCard(pet, index) {
+    const card = document.createElement("article");
+    card.className = "pet-card";
 
-    const petCard = document.createElement("article");
+    card.classList.add(
+        petColors[(existingPetCount + index) % petColors.length]
+    );
 
-    petCard.className = "pet-card";
+    const photo = document.createElement("img");
+    photo.src = pet.image;
+    photo.alt = "Photo of " + pet.name;
+    card.appendChild(photo);
 
-    const colorClass =
-        petColors[(existingPetCount + index) % petColors.length];
+    const title = document.createElement("h3");
+    title.textContent = pet.name;
+    card.appendChild(title);
 
-    petCard.classList.add(colorClass);
+    function addDetail(label, value) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = label + ": " + value;
+        card.appendChild(paragraph);
+    }
 
-    petCard.innerHTML = `
-        <img src="${pet.image}" alt="${pet.name}">
-        <h3>${pet.name}</h3>
-        <p>Type: ${pet.type}</p>
-        <p>Breed: ${pet.breed}</p>
-        <p>Age: ${pet.age} ${pet.ageUnit}</p>
-        <p>Gender: ${pet.gender}</p>
-        <p>Last seen: ${pet.location}</p>
-        <p>Missing Since: ${formatDate(pet.missingSince)}</p>
-        <p><strong>Call: ${pet.contact}</strong></p>
-    `;
+    addDetail("Type", pet.type);
+    addDetail("Breed", pet.breed);
+    addDetail("Age", pet.age + " " + pet.ageUnit);
+    addDetail("Gender", pet.gender);
+    addDetail("Last seen", pet.location);
+    addDetail("Missing Since", formatDate(pet.missingSince));
 
-    petGrid.appendChild(petCard);
-});
+    const contactParagraph = document.createElement("p");
+    const contact = document.createElement("strong");
+    contact.textContent = "Call: " + pet.contact;
+    contactParagraph.appendChild(contact);
+    card.appendChild(contactParagraph);
 
-const petCards = document.querySelectorAll(".pet-card");
-
-let currentPage = 1;
-const petsPerPage = 4;
-
-function showPage() {
-
-    const start = (currentPage - 1) * petsPerPage;
-    const end = start + petsPerPage;
-
-    petCards.forEach(function(card, index) {
-
-        if (index >= start && index < end) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
-        }
-
-    });
-
-    const totalPages = Math.ceil(petCards.length / petsPerPage);
-
-    prevButton.style.display =
-        currentPage > 1 ? "block" : "none";
-
-    nextButton.style.display =
-        currentPage < totalPages ? "block" : "none";
+    petGrid.appendChild(card);
 }
 
-nextButton.addEventListener("click", function() {
+// Set up pagination after the cards are loaded
+function setupPagination() {
+    const petCards = document.querySelectorAll(".pet-grid .pet-card");
 
-    currentPage++;
+    let currentPage = 1;
+    const petsPerPage = 4;
+
+    function showPage() {
+        const start = (currentPage - 1) * petsPerPage;
+        const end = start + petsPerPage;
+
+        petCards.forEach(function(card, index) {
+            card.style.display =
+                index >= start && index < end ? "" : "none";
+        });
+
+        const totalPages = Math.ceil(petCards.length / petsPerPage);
+
+        prevButton.style.display =
+            currentPage > 1 ? "block" : "none";
+
+        nextButton.style.display =
+            currentPage < totalPages ? "block" : "none";
+    }
+
+    nextButton.onclick = function() {
+        const totalPages = Math.ceil(petCards.length / petsPerPage);
+
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage();
+        }
+    };
+
+    prevButton.onclick = function() {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage();
+        }
+    };
+
     showPage();
+}
 
-});
+// Request saved pet reports from the backend
+fetch("http://localhost:3000/api/pets")
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error("Could not load pet reports.");
+        }
 
-prevButton.addEventListener("click", function() {
+        return response.json();
+    })
+    .then(function(pets) {
+        pets.forEach(function(pet, index) {
+            createPetCard(pet, index);
+        });
 
-    currentPage--;
-    showPage();
+        setupPagination();
+    })
+    .catch(function(error) {
+        console.error("Error loading pet reports:", error);
 
-});
+        setupPagination();
 
-showPage();
+        const message = document.createElement("p");
+        message.textContent =
+            "Could not load new pet reports. Please try again later.";
+
+        petGrid.appendChild(message);
+    });
