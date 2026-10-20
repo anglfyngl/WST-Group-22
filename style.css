@@ -782,6 +782,23 @@ footer a:hover {
     margin: 10px auto 0;
     width: 100%;
 }
+
+#support-message-status.status-success {
+    color: #2e7d32;
+}
+
+#support-message-status.status-error {
+    color: #c62828;
+}
+
+#support-message-status.status-info {
+    color: #303030;
+}
+
+.support-form button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
 .support-page footer {
     margin-top: 60px;
 }

@@ -32,6 +32,26 @@ The Canva design serves as a reference for the website's layout, content, colors
 
 [View Canva Design](https://canva.link/s1aeiq7bu58b1f8)
 
+## Customer Support Backend (Milestone 2)
+
+The Customer Support form sends requests to a small **Express.js** server instead of only staying in the browser.
+
+**Run it:**
+```bash
+cd server
+npm install
+npm start          # open http://localhost:3000/support.html
+```
+
+**API:** `POST /api/support` with `subject`, `email`, `category` and `message` (JSON).
+
+- **Validation (server side):** all fields must be text; subject is required (max 100 characters, no `<` or `>`); the email must be valid; the category must be one of the four options; the message must be 10–1000 characters.
+- **Repeated submissions:** the same request sent again within 10 minutes (for example a double-click) is not saved twice.
+- **Error handling:** invalid or broken requests, requests that are too large and unknown API routes all get a clear JSON error message; the page shows it in red, and success in green.
+- **Storage:** requests are saved in `server/support-requests.json` (not uploaded to GitHub). The file is written safely, and a damaged file is backed up instead of crashing the server.
+
+**Tests:** `cd server && npm test` (valid and invalid input, repeated submissions, server restart, damaged data file).
+
 ## Project Links
 
 - **GitHub Repository:** https://github.com/anglfyngl/WST-Group-22
