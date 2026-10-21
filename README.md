@@ -32,6 +32,26 @@ The Canva design serves as a reference for the website's layout, content, colors
 
 [View Canva Design](https://canva.link/s1aeiq7bu58b1f8)
 
+## Customer Support Backend (Milestone 2)
+
+The Customer Support form sends requests to the same **Express.js** server that handles MongoDB pet reports.
+
+**Run it:**
+```bash
+npm install
+npm start           # start the backend on http://localhost:3000
+```
+
+**API:** `POST /api/support` with `subject`, `email`, `category` and `message` (JSON).
+
+- **Validation (server side):** all fields must be text; subject is required (max 100 characters, no `<` or `>`); the email must be valid; the category must be one of the four options; the message must be 10–1000 characters.
+- **Repeated submissions:** the same request sent again within 10 minutes (for example a double-click) is not saved twice.
+- **Lost pet reports:** matching name, type, breed, age/unit, gender, location, contact number and missing date are not saved twice within 10 minutes; a report with differing details can still be submitted.
+- **Error handling:** invalid or broken requests, requests that are too large and unknown API routes all get a clear JSON error message; the page shows it in red, and success in green.
+- **Storage:** support requests are saved in MongoDB through `server/models/SupportRequest.js`.
+
+**Tests:** `npm test` (validation, repeated submissions, request parsing and API errors).
+
 ## Project Links
 
 - **GitHub Repository:** https://github.com/anglfyngl/WST-Group-22
