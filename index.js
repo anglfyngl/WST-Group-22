@@ -1,8 +1,12 @@
+// Load environment variables from the .env file.
 require("dotenv").config();
 
+// Import the libraries needed to run the backend server.
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
+// Import the pet and support request models and validation functions.
 const Pet = require("./server/models/Pet");
 const SupportRequest = require("./server/models/SupportRequest");
 const {
@@ -10,8 +14,10 @@ const {
     DUPLICATE_WINDOW_MS
 } = require("./server/support-validation");
 
+// Set the port number used by the backend server.
 const PORT = 3000;
 
+// Get today's date in YYYY-MM-DD format using the local date.
 function getTodayLocalDate() {
     const today = new Date();
     const year = today.getFullYear();
@@ -21,6 +27,7 @@ function getTodayLocalDate() {
     return `${year}-${month}-${day}`;
 }
 
+// Check whether the given date is valid and earlier than today.
 function isValidPastDate(value) {
     if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
         return false;
@@ -35,6 +42,7 @@ function isValidPastDate(value) {
         value < getTodayLocalDate();
 }
 
+// Format a support request into a clean object to send back to the client.
 function formatSupportRequest(request) {
     return {
         id: request._id.toString(),
@@ -46,20 +54,26 @@ function formatSupportRequest(request) {
     };
 }
 
+// Create the Express app and set up the models used by the API.
 function createApp(models = {}) {
     const PetModel = models.Pet || Pet;
     const SupportRequestModel = models.SupportRequest || SupportRequest;
     const app = express();
 
+// Allow the frontend to send requests to the backend.
     app.use(cors());
 
+// Handle support request submissions and limit the request body size to 10kb.
     app.post("/api/support", express.json({ limit: "10kb" }), async (req, res) => {
+
+// Validate the submitted support request and return errors if the data is invalid.
         const result = validateSupportRequest(req.body);
 
         if (result.errors) {
             return res.status(400).json({ errors: result.errors });
         }
 
+// Check whether the same support request was submitted within the last 10 minutes.
         try {
             const duplicate = await SupportRequestModel.findOne({
                 email: result.request.email,
@@ -70,6 +84,7 @@ function createApp(models = {}) {
                 }
             });
 
+// Return a message if the support request has already been submitted.
             if (duplicate) {
                 return res.status(200).json({
                     message: "We already received this request. Our team will get back to you soon.",
@@ -78,6 +93,7 @@ function createApp(models = {}) {
                 });
             }
 
+// Save the valid support request to the database.
             const supportRequest = new SupportRequestModel(result.request);
             await supportRequest.save();
 

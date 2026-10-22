@@ -30,7 +30,7 @@ function isValidPastDate(value) {
 }
 
 const yesterday = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
+yesterday.setDate(yesterday.getDate());
 missingSinceInput.max = formatLocalDate(yesterday);
 
 const invalidDateMessage =
