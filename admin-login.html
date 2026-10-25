@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Login | FurFind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>FurFind Staff Portal</h1>
+    </header>
+
+    <main>
+        <section class="staff-login">
+            <h2>Staff Login</h2>
+            <p>Authorized FurFind staff members only.</p>
+
+            <form id="staff-login-form">
+                <label for="staff-email">Email Address</label>
+                <input
+                    type="email"
+                    id="staff-email"
+                    name="email"
+                    required
+                >
+
+                <label for="staff-password">Password</label>
+                <input
+                    type="password"
+                    id="staff-password"
+                    name="password"
+                    required
+                >
+
+                <button type="submit">Log In</button>
+            </form>
+
+            <p id="login-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 FurFind. Helping lost pets return home.</p>
+        <a href="index.html">Return to Home</a>
+    </footer>
+
+    <script src="admin-login.js"></script>
+</body>
+</html>
