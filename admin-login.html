@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFind - Admin Login</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<body class="support-page">
+
+    <header>
+
+        <div class="logo-area">
+            <img src="resources/logo.png" alt="FurFind logo">
+            <h1>FurFind</h1>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="report.html">Report Lost Pet</a>
+            <a href="recent-pets.html">Recent Lost Pets</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+        </nav>
+
+
+    </header>
+
+    <main class="support-main">
+
+        <h2 class="support-title">Admin Login</h2>
+
+        <form class="admin-form" id="loginForm">
+
+            <div class="admin-column">
+
+        <p>
+            <label for="admin-username">Username:</label>
+            <input
+                type="text"
+                id="admin-username"
+                name="username"
+            placeholder="Enter username"
+                required>
+        </p>
+
+        <p>
+            <label for="admin-password">Password:</label>
+            <input
+                type="password"
+                id="admin-password"
+                name="password"
+            placeholder="Enter password"
+                required>
+            </p>
+            </div>
+
+
+            <button type="submit">Login</button>
+
+        <p id="support-message-status"></p>
+
+        </form>
+
+    </main>
+
+    <footer>
+        <a href="support.html">FurFind Customer Support</a>
+        <p><br>Helping every pet find the care they deserve.</p>
+        <p>&copy; 2026 FurFind. All rights reserved.</p>
+    </footer>
+
+    <script src="Login.js"></script>
+
+</body>
+
+
+
+</html>
