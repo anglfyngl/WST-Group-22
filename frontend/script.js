@@ -15,7 +15,7 @@ function getTodayLocalDate() {
     return formatLocalDate(new Date());
 }
 
-function isValidPastDate(value) {
+function isValidMissingSinceDate(value) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
         return false;
     }
@@ -26,24 +26,22 @@ function isValidPastDate(value) {
     calendarDate.setUTCHours(0, 0, 0, 0);
 
     return calendarDate.toISOString().slice(0, 10) === value &&
-        value < getTodayLocalDate();
+        value <= getTodayLocalDate();
 }
 
-const yesterday = new Date();
-yesterday.setDate(yesterday.getDate());
-missingSinceInput.max = formatLocalDate(yesterday);
+missingSinceInput.max = getTodayLocalDate();
 
 const invalidDateMessage =
-    "Please select a date before today. Today and future dates are not allowed.";
+    "Please select today or an earlier date. Future dates are not allowed.";
 
 missingSinceInput.addEventListener("input", function() {
     missingSinceInput.setCustomValidity(
-        isValidPastDate(missingSinceInput.value) ? "" : invalidDateMessage
+        isValidMissingSinceDate(missingSinceInput.value) ? "" : invalidDateMessage
     );
 });
 
 missingSinceInput.addEventListener("invalid", function() {
-    if (missingSinceInput.value && missingSinceInput.value >= getTodayLocalDate()) {
+    if (missingSinceInput.value && missingSinceInput.value > getTodayLocalDate()) {
         reportMessage.textContent = invalidDateMessage;
     }
     missingSinceInput.setCustomValidity(invalidDateMessage);
@@ -75,7 +73,7 @@ reportForm.addEventListener("submit", function(event) {
 
     const missingSince = missingSinceInput.value;
 
-    if (!isValidPastDate(missingSince)) {
+    if (!isValidMissingSinceDate(missingSince)) {
         reportMessage.textContent = invalidDateMessage;
         return;
     }
