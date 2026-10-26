@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { isValidCalendarDate } = require("../date-validation");
 
 const petSchema = new mongoose.Schema({
     name: {
@@ -43,7 +44,11 @@ const petSchema = new mongoose.Schema({
     },
     missingSince: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: isValidCalendarDate,
+            message: "Missing Since must be a valid calendar date."
+        }
     },
     image: {
         type: String,

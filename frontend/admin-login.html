@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFind - Staff Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<body class="support-page admin-login-page">
+
+    <header>
+        <div class="logo-area">
+            <img src="../resources/logo.png" alt="FurFind logo">
+            <h1>FurFind</h1>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="report.html">Report Lost Pet</a>
+            <a href="recent-pets.html">Recent Lost Pets</a>
+            <a href="resources.html">Resources</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main class="support-main admin-login-main">
+        <h2 class="support-title">Staff Login</h2>
+
+        <form class="admin-login-form" id="staff-login-form">
+            <div class="admin-login-field">
+                <label for="staff-email">Email Address</label>
+                <input
+                    type="email"
+                    id="staff-email"
+                    name="email"
+                    autocomplete="username"
+                    required>
+            </div>
+
+            <div class="admin-login-field">
+                <label for="staff-password">Password</label>
+                <input
+                    type="password"
+                    id="staff-password"
+                    name="password"
+                    autocomplete="current-password"
+                    required>
+            </div>
+
+            <button type="submit">Login</button>
+            <p id="login-message" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <footer>
+        <a href="support.html">FurFind Customer Support</a>
+        <p>&copy; 2026 FurFind. All rights reserved.</p>
+    </footer>
+
+    <script src="admin-login.js?v=20261026-save-status-2"></script>
+</body>
+
+</html>

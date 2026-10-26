@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFind - Staff Portal</title>
+    <link rel="stylesheet" href="style.css?v=20261026-bold-support-labels">
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+
+<body class="staff-dashboard-page">
+    <header>
+        <div class="logo-area">
+            <img src="../resources/logo.png" alt="FurFind logo">
+            <h1>FurFind Staff Portal</h1>
+        </div>
+        <nav>
+            <a href="index.html">Public Website</a>
+            <button id="staff-logout" type="button">Log Out</button>
+        </nav>
+    </header>
+
+    <main class="staff-dashboard-main">
+        <p id="dashboard-message" role="status" aria-live="polite"></p>
+
+        <section aria-labelledby="pet-reports-title">
+            <h2 id="pet-reports-title" tabindex="-1">Lost Pet Reports</h2>
+            <div id="staff-pet-reports" class="staff-record-list"></div>
+        </section>
+
+        <section aria-labelledby="support-requests-title">
+            <h2 id="support-requests-title">Customer Support Requests</h2>
+            <p class="staff-note">Responses are saved for staff reference and are not emailed.</p>
+            <div id="staff-support-requests" class="staff-record-list"></div>
+        </section>
+    </main>
+
+    <div
+        id="delete-pet-modal"
+        class="staff-modal-backdrop"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="delete-pet-modal-title"
+        aria-describedby="delete-pet-modal-description"
+        tabindex="-1"
+        hidden
+    >
+        <section class="staff-modal" role="document">
+            <button
+                id="delete-pet-modal-close"
+                class="staff-modal-close"
+                type="button"
+                aria-label="Close delete confirmation"
+            >&times;</button>
+            <h2 id="delete-pet-modal-title">Delete Lost Pet Report?</h2>
+            <p id="delete-pet-modal-description">
+                Are you sure you want to delete this report? This action cannot be undone.
+            </p>
+            <p id="delete-pet-modal-pet-name" class="staff-modal-pet-name"></p>
+            <p id="delete-pet-modal-error" class="staff-modal-error" role="alert"></p>
+            <div class="staff-modal-actions">
+                <button id="delete-pet-modal-cancel" type="button">Cancel</button>
+                <button id="delete-pet-modal-confirm" class="staff-delete-button" type="button">
+                    Delete Report
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <a href="support.html">FurFind Customer Support</a>
+        <p>&copy; 2026 FurFind. All rights reserved.</p>
+    </footer>
+
+    <script src="staff-dashboard.js?v=20261026-bold-support-labels"></script>
+</body>
+
+</html>

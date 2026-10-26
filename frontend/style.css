@@ -803,6 +803,375 @@ footer a:hover {
     margin-top: 60px;
 }
 
+/* STAFF LOGIN PAGE */
+
+.admin-login-main {
+    padding-bottom: 30px;
+}
+
+.admin-login-form {
+    width: 540px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px 50px;
+
+    background-color: #edf5e9;
+    border: 2px solid #303030;
+    box-shadow: 16px 16px 0 #303030;
+
+    text-align: left;
+}
+
+.admin-login-field {
+    margin-bottom: 24px;
+}
+
+.admin-login-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.admin-login-field input {
+    width: 100%;
+    padding: 8px 4px;
+
+    border: none;
+    border-bottom: 2px solid #aaa;
+    background-color: transparent;
+
+    font-size: 16px;
+}
+
+.admin-login-form button {
+    display: block;
+    margin: 12px auto 0;
+    padding: 7px 45px;
+
+    border: 2px solid #303030;
+    background-color: #fdeed7;
+    box-shadow: 4px 4px 0 #303030;
+
+    cursor: pointer;
+}
+
+.admin-login-form button:hover {
+    background-color: #ffd0cc;
+}
+
+#login-message {
+    min-height: 1.2em;
+    margin: 18px 0 0;
+    text-align: center;
+}
+
+/* STAFF DASHBOARD */
+
+.staff-dashboard-page {
+    min-height: 100vh;
+}
+
+.staff-dashboard-page header {
+    width: 94%;
+}
+
+.staff-dashboard-page nav {
+    gap: 14px;
+}
+
+.staff-dashboard-page nav a {
+    border-right: 0;
+}
+
+#staff-logout {
+    padding: 7px 18px;
+    border: 2px solid #303030;
+    background-color: #fdeed7;
+    box-shadow: 3px 3px 0 #303030;
+    color: #303030;
+    cursor: pointer;
+}
+
+#staff-logout:hover {
+    background-color: #ffd0cc;
+}
+
+.staff-dashboard-main {
+    width: 94%;
+    max-width: 1200px;
+    margin: 30px auto 50px;
+    flex: 1;
+}
+
+.staff-dashboard-main h2 {
+    font-family: 'Jua', sans-serif;
+    font-size: 38px;
+}
+
+.staff-dashboard-main section {
+    margin: 30px 0 50px;
+}
+
+.staff-record-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: stretch;
+    gap: 24px;
+}
+
+.staff-record-card {
+    display: flex;
+    height: 100%;
+    min-width: 0;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 22px;
+    border: 2px solid #303030;
+    background-color: #edf5e9;
+    box-shadow: 8px 8px 0 #303030;
+    overflow-wrap: anywhere;
+}
+
+.staff-record-card h3 {
+    font-family: 'Jua', sans-serif;
+    font-size: 24px;
+}
+
+.staff-request-message {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.staff-request-message-label {
+    margin: 14px 0 6px;
+    font-weight: bold;
+}
+
+.staff-edit-form {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.staff-request-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.staff-support-form {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.staff-edit-form label {
+    display: grid;
+    gap: 5px;
+    font-weight: bold;
+}
+
+.staff-edit-form input,
+.staff-edit-form select,
+.staff-edit-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #777;
+    background-color: #fffdf7;
+    color: #303030;
+    font: inherit;
+}
+
+.staff-edit-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.staff-edit-form button {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 8px 16px;
+    border: 2px solid #303030;
+    background-color: #fdeed7;
+    box-shadow: 3px 3px 0 #303030;
+    cursor: pointer;
+}
+
+.staff-support-form button {
+    align-self: stretch;
+    width: 100%;
+    margin-top: 0;
+}
+
+.staff-record-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.staff-record-status {
+    flex: 1 0 100%;
+    min-height: 1.5em;
+    margin: 0;
+    padding: 8px 10px;
+    border: 1px solid #9caf91;
+    background-color: #fffdf7;
+    color: #245c31;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.staff-record-status:empty {
+    visibility: hidden;
+}
+
+.staff-record-status.status-error {
+    border-color: #c62828;
+    background-color: #fff1ef;
+    color: #a51d1d;
+}
+
+.staff-record-actions button {
+    margin-top: 0;
+}
+
+.staff-edit-form .staff-delete-button {
+    background-color: #ffd0cc;
+}
+
+.staff-record-message {
+    min-height: 1.3em;
+    overflow-wrap: anywhere;
+}
+
+.staff-record-message.status-error {
+    color: #c62828;
+}
+
+.staff-record-message:not(.status-error):not(:empty) {
+    font-weight: bold;
+}
+
+.staff-modal-backdrop {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgb(48 48 48 / 65%);
+}
+
+.staff-modal-backdrop[hidden] {
+    display: none;
+}
+
+.staff-modal {
+    position: relative;
+    width: min(100%, 520px);
+    max-height: min(90vh, 720px);
+    overflow-y: auto;
+    padding: 34px;
+    border: 3px solid #303030;
+    background-color: #fffdf7;
+    box-shadow: 10px 10px 0 #303030;
+}
+
+.staff-modal h2 {
+    margin: 0 36px 16px 0;
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
+}
+
+.staff-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #303030;
+    background-color: #fdeed7;
+    box-shadow: 3px 3px 0 #303030;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.staff-modal-pet-name {
+    padding: 12px;
+    border: 1px solid #777;
+    background-color: #edf5e9;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.staff-modal-error {
+    min-height: 1.3em;
+    color: #c62828;
+    overflow-wrap: anywhere;
+}
+
+.staff-modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.staff-modal-actions button {
+    min-height: 44px;
+    padding: 9px 18px;
+    border: 2px solid #303030;
+    background-color: #fdeed7;
+    box-shadow: 3px 3px 0 #303030;
+    font: inherit;
+    cursor: pointer;
+}
+
+.staff-modal-actions .staff-delete-button {
+    background-color: #ffd0cc;
+}
+
+.staff-modal button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.staff-modal button:focus-visible,
+.staff-record-card button:focus-visible,
+.staff-edit-form input:focus-visible,
+.staff-edit-form select:focus-visible,
+.staff-edit-form textarea:focus-visible {
+    outline: 3px solid #245c31;
+    outline-offset: 3px;
+}
+
+.staff-edit-form button:hover {
+    background-color: #ffd0cc;
+}
+
+.staff-note {
+    margin-bottom: 20px;
+}
+
+#dashboard-message {
+    min-height: 1.4em;
+    font-weight: bold;
+}
+
+#dashboard-message.status-error {
+    color: #c62828;
+}
+
+.staff-dashboard-page footer {
+    margin-top: 30px;
+}
+
 /* RESPONSIVE DESIGN */
 
 /* TABLET AND SMALL LAPTOPS */
@@ -853,6 +1222,10 @@ footer a:hover {
         gap: 25px 30px;
     }
 
+    .admin-login-form {
+        padding: 25px 35px;
+    }
+
     .pet-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 45px;
@@ -880,6 +1253,27 @@ footer a:hover {
 /* PHONES */
 
 @media (max-width: 600px) {
+
+    .staff-modal-backdrop {
+        padding: 12px;
+    }
+
+    .staff-modal {
+        padding: 28px 20px 22px;
+        box-shadow: 6px 6px 0 #303030;
+    }
+
+    .staff-modal h2 {
+        font-size: 26px;
+    }
+
+    .staff-modal-actions {
+        justify-content: stretch;
+    }
+
+    .staff-modal-actions button {
+        flex: 1 1 130px;
+    }
 
     .section-title,
     .section-title + p {
@@ -961,6 +1355,18 @@ footer a:hover {
         width: 100%;
         display: block;
         padding: 25px 25px;
+    }
+
+    .admin-login-form {
+        padding: 25px;
+    }
+
+    .staff-dashboard-page .logo-area h1 {
+        font-size: 24px;
+    }
+
+    .staff-dashboard-main h2 {
+        font-size: 30px;
     }
 
     .form-column {

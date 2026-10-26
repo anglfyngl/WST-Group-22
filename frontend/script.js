@@ -25,7 +25,9 @@ function isValidMissingSinceDate(value) {
     calendarDate.setUTCFullYear(year, month - 1, day);
     calendarDate.setUTCHours(0, 0, 0, 0);
 
-    return calendarDate.toISOString().slice(0, 10) === value &&
+    return calendarDate.getUTCFullYear() === year &&
+        calendarDate.getUTCMonth() === month - 1 &&
+        calendarDate.getUTCDate() === day &&
         value <= getTodayLocalDate();
 }
 
@@ -139,8 +141,9 @@ reportForm.addEventListener("submit", function(event) {
            fetch("http://localhost:3000/api/pets", {
                method: "POST",
                headers: {
-                   "Content-Type": "application/json"
-                },
+                   "Content-Type": "application/json",
+                   "X-Client-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone
+               },
                 body: JSON.stringify(petReport)
             })
             .then(async function(response) {

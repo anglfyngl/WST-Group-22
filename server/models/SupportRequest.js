@@ -38,6 +38,17 @@ const supportRequestSchema = new mongoose.Schema({
     submittedAt: {
         type: Date,
         default: Date.now
+    },
+    status: {
+        type: String,
+        enum: ["open", "in_progress", "resolved"],
+        default: "open"
+    },
+    staffResponse: {
+        type: String,
+        trim: true,
+        maxlength: 2000,
+        default: ""
     }
 });
 
