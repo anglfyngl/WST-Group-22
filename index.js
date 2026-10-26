@@ -61,6 +61,7 @@ function createApp(models = {}) {
     const PetModel = models.Pet || Pet;
     const SupportRequestModel = models.SupportRequest || SupportRequest;
     const app = express();
+    app.use(express.static(__dirname));
 
 // Allow the frontend to send requests to the backend.
     app.use(cors());
